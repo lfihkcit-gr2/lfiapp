@@ -29,12 +29,12 @@
 			{
 				var xmlhttp, xml_data, items, content;
 				xmlhttp=new XMLHttpRequest();
-				//xmlhttp.open("GET", "http://www.lfihk.net/CIT/xmlfile_light.xml", true);
-				xmlhttp.open("GET", "xmlfile_light.xml", false);
+				xmlhttp.open("GET", "http://www.lfihk.net/CIT/xmlfile_light.xml", true);
+				//xmlhttp.open("GET", "xmlfile_light.xml", false);
 				//xmlhttp.overrideMimeType('text/xml; charset=iso-8859-1');
 xmlhttp.send();
-					//if (xmlhttp.readyState==4 && xmlhttp.status==200)
-					//{
+					if (xmlhttp.readyState==4 && xmlhttp.status==200)
+					{
 					
 						xml_data = xmlhttp.responseXML;
 						items = xml_data.getElementsByTagName("CD");
@@ -47,7 +47,7 @@ xmlhttp.send();
 							}
 						
 						document.getElementById('content').innerHTML=content;
-					//}
+					}
 
 				
 			}	
