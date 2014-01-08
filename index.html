@@ -34,21 +34,20 @@
 				//xmlhttp.open("GET", "xmlfile_light.xml", false);
 				//xmlhttp.overrideMimeType('text/xml; charset=iso-8859-1');
 				xmlhttp.send();
-					//if (xmlhttp.readyState==4 && xmlhttp.status==200)
-					//{
+					if (xmlhttp.readyState==4 && xmlhttp.status==200)
+					{
 					
 						xml_data = xmlhttp.responseXML;
-						items = xml_data.getElementsByTagName("CD");
+						items = xml_data.getElementsByTagName("channel");
 						alert(items.length);
 						content = '';
 						for (i=0;i<items.length;i++)
 							{ 
-							alert("x");
-							content = content + '<h1 class="title">' + items[i].getElementsByTagName("TITLE")[0].textContent + '</h1><p class="description">' + items[i].getElementsByTagName("ARTIST")[0].textContent + '</p>';
+							content = content + '<h1 class="title">' + items[i].getElementsByTagName("title")[0].textContent + '</h1><p class="description">' + items[i].getElementsByTagName("description")[0].textContent + '</p>';
 							}
 						
 						document.getElementById('content').innerHTML=content;
-					//}
+					}
 			}	
 		</script>
     </head>
