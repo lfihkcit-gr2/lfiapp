@@ -22,24 +22,23 @@
 		<title>LFIS</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
-		<link rel="stylesheet" type="text/css" href="styles.css" />
+       <link rel="stylesheet" type="text/css" href="styles.css" />
 		<script>
 			// XML PARSER cf. http://www.w3schools.com/xml/tryit.asp?filename=tryxml_display_table
 			function xmlparser()
 			{
 				var xmlhttp, xml_data, items, content;
 				xmlhttp=new XMLHttpRequest();
-				xmlhttp.open("GET", "http://www.fis.edu.hk/web/WebsiteFeeds.aspx?f=1&lang=fr-fr", true);
-				//xmlhttp.open("GET", "http://www.lfihk.net/CIT/xmlfile_light.xml", true);
-				//xmlhttp.open("GET", "xmlfile_light.xml", false);
-				//xmlhttp.overrideMimeType('text/xml; charset=iso-8859-1');
-				xmlhttp.send();
+				xmlhttp.open("GET", "http://www.fis.edu.hk/web/WebsiteFeeds.aspx?f=0&lang=fr-fr", true);
+				//xmlhttp.open("GET", "xmlfile.xml", true);
+				xmlhttp.overrideMimeType('text/xml; charset=iso-8859-1');
+				xmlhttp.onreadystatechange=function()
+				{
 					if (xmlhttp.readyState==4 && xmlhttp.status==200)
 					{
-					
 						xml_data = xmlhttp.responseXML;
-						items = xml_data.getElementsByTagName("channel");
-						alert(items.length);
+						items = xml_data.getElementsByTagName("item");
+						
 						content = '';
 						for (i=0;i<items.length;i++)
 							{ 
@@ -48,6 +47,8 @@
 						
 						document.getElementById('content').innerHTML=content;
 					}
+				}
+				xmlhttp.send();
 			}	
 		</script>
     </head>
@@ -56,6 +57,11 @@
 		<div id="content">&nbsp;</div>
 		
 		<script type="text/javascript">window.onload = xmlparser();</script>
- 
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
     </body>
 </html>
+
