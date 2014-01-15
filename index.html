@@ -43,7 +43,7 @@
 						content = '';
 						for (i=0;i<items.length;i++)
 							{ 
-							content = content + <div>'<h1>' + items[i].getElementsByTagName("title")[0].textContent + '</h1><p class="description">' + items[i].getElementsByTagName("description")[0].textContent + '</p>'</div>;
+							content = content + '<div><h1>' + items[i].getElementsByTagName("title")[0].textContent + '</h1><p class="description">' + items[i].getElementsByTagName("description")[0].textContent + '</p></div>';
 							}
 						
 						document.getElementById('content').innerHTML=content;
