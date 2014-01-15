@@ -25,7 +25,7 @@
        <link rel="stylesheet" type="text/css" href="styles.css" />
 		<script>
 			// XML PARSER cf. http://www.w3schools.com/xml/tryit.asp?filename=tryxml_display_table
-			//
+			
 			function xmlparser()
 			{
 				var xmlhttp, xml_data, items, content;
@@ -43,7 +43,7 @@
 						content = '';
 						for (i=0;i<items.length;i++)
 							{ 
-							content = content + '<h1 class="title">' + items[i].getElementsByTagName("title")[0].textContent + '</h1><p class="description">' + items[i].getElementsByTagName("description")[0].textContent + '</p>';
+							content = content + <div>'<h1>' + items[i].getElementsByTagName("title")[0].textContent + '</h1><p class="description">' + items[i].getElementsByTagName("description")[0].textContent + '</p>'</div>;
 							}
 						
 						document.getElementById('content').innerHTML=content;
